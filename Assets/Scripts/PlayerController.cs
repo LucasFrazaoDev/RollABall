@@ -7,11 +7,10 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0f;
-    public TextMeshProUGUI countText;
-    public GameObject winTextObject;
 
     private Rigidbody playerRig;
-    private int count;
+    private UIControllerGame uiControllerGame;
+
     private float movementX;
     private float movementY;
 
@@ -19,10 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRig = GetComponent<Rigidbody>();
-        count = 0;
-
-        SetCountText();
-        winTextObject.SetActive(false);
+        uiControllerGame = GameObject.Find("UIControllerGame").GetComponent<UIControllerGame>();
     }
 
     // Update is called once per frame
@@ -40,24 +36,14 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
-    private void SetCountText()
-    {
-        countText.text = "Count: " + count.ToString();
-
-        if (count >= 4)
-        {
-            winTextObject.SetActive(true);
-        }
-    }
-
     private void OnTriggerEnter(Collider target)
     {
         if (target.gameObject.CompareTag("Pickup"))
         {
             target.gameObject.SetActive(false);
-            count++;
 
-            SetCountText();
+            uiControllerGame.Count++;
+            uiControllerGame.SetCountText();
         }
     }
 }

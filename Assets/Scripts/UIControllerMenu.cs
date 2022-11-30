@@ -11,6 +11,7 @@ public class UIControllerMenu : MonoBehaviour
     public void ButtonStartGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale= 1.0f;
     }
 
     public void ButtonQuitGame()
