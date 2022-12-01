@@ -48,7 +48,7 @@ public class UIControllerGame : MonoBehaviour
 
         if (Count == 4)
         {
-            northWall.GetComponent<MoveDownWall>().enabled = true;
+            StartCoroutine(ActiveWall());
         }
 
         if (Count >= 12)
@@ -72,6 +72,13 @@ public class UIControllerGame : MonoBehaviour
                 gameOverText.text = "Congratulations, you win!";
             break;
         }
+    }
+
+    private IEnumerator ActiveWall()
+    {
+        northWall.GetComponent<MoveDownWall>().enabled = true;
+        yield return new WaitForSeconds(2f);
+        northWall.GetComponent<MoveDownWall>().enabled = false;
     }
 
     #region ButtonMethods
