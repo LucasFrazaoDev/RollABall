@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pickup
+  m_Name: Ferry
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -106,12 +106,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.990566, g: 0.6145687, b: 0.19157171, a: 1}
-    - _Color: {r: 0.99056596, g: 0.61456865, b: 0.19157168, a: 1}
+    - _BaseColor: {r: 0.33433908, g: 0.8396226, b: 0.29703632, a: 1}
+    - _Color: {r: 0.33433905, g: 0.8396226, b: 0.2970363, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &4052498195278203621
+--- !u!114 &5636541890088339553
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

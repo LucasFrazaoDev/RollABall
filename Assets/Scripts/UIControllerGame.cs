@@ -7,6 +7,8 @@ using TMPro;
 
 public class UIControllerGame : MonoBehaviour
 {
+    [SerializeField] private GameObject northWall;
+
     [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private TextMeshProUGUI countText;
     [SerializeField] private TextMeshProUGUI countDownText;
@@ -23,6 +25,8 @@ public class UIControllerGame : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+
         currentTime = timeStart;
         Count = 0;
     }
@@ -38,9 +42,14 @@ public class UIControllerGame : MonoBehaviour
         }
     }
 
-    public void SetCountText()
+    public void IncreaseCount()
     {
         countText.text = "Count: " + Count.ToString();
+
+        if (Count == 4)
+        {
+            northWall.GetComponent<MoveDownWall>().enabled = true;
+        }
 
         if (Count >= 12)
         {
@@ -68,8 +77,7 @@ public class UIControllerGame : MonoBehaviour
     #region ButtonMethods
     public void ButtonRestartGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
 

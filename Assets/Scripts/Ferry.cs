@@ -9,7 +9,7 @@ public class Ferry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Mathf.PingPong(Time.time * speed, 1) * 9 - 3;
+        float x = Mathf.PingPong(Time.time * speed, 1) * 12 - 6;
         transform.localPosition = new Vector3(x, 0, -1);
     }
 }

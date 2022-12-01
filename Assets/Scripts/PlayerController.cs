@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody playerRig;
     private UIControllerGame uiControllerGame;
+    [SerializeField] private Transform respawnPoint;
 
     private float movementX;
     private float movementY;
@@ -19,6 +20,15 @@ public class PlayerController : MonoBehaviour
     {
         playerRig = GetComponent<Rigidbody>();
         uiControllerGame = GameObject.Find("UIControllerGame").GetComponent<UIControllerGame>();
+    }
+
+    private void Update()
+    {
+        if (transform.position.y < -20)
+        {
+            transform.position = respawnPoint.position;
+            playerRig.velocity = Vector3.zero;
+        }
     }
 
     // Update is called once per frame
@@ -43,7 +53,7 @@ public class PlayerController : MonoBehaviour
             target.gameObject.SetActive(false);
 
             uiControllerGame.Count++;
-            uiControllerGame.SetCountText();
+            uiControllerGame.IncreaseCount();
         }
     }
 }
